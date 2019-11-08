@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Spotify – Home</title>
+    <title>Spotify – Queen</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -227,8 +227,13 @@
         }
 
         #albumsBox i {
-            display: none;
+            position: absolute;
+            margin-top: -130px;
+            transform: scale(3.0);
+            display:none;
         }
+
+
 
         #albumsBox a {
             color: #a2a2a2;
@@ -260,6 +265,7 @@
         footer .iconsPlayer {
             text-align: center;
         }
+
     </style>
 
 </head>
@@ -395,19 +401,19 @@
                                 albumDiv.id = "album"
                                 albumDiv.innerHTML = `
                                 <img id="cover" src="${data.album.cover_big}">
-                                <div id="play"><i class="fa fa-play-circle"></i></div>
                                 <span> ${data.album.title} </span></br>
                                 <a src="#"> ${data.artist.name} </a>
                                 `
                                 albumsBox.appendChild(albumDiv)
                     }) 
+
                 })
                 .catch(err => {
                     console.log(err);
                 });
 
         }
-
+        
 
 
     </script>
