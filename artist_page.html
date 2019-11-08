@@ -12,6 +12,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+
     <style>
         body {
             overflow-x: hidden;
@@ -171,7 +174,7 @@
         footer {
             background-color: #282828;
             z-index: 2;
-            position: fixed;
+            position: relative;
             width: 100%;
             left: 0;
             bottom: 0;
@@ -193,7 +196,8 @@
           color: #fff;
         }
         .song-title {float: left;}
-        .song-artist {float: left;}
+        .material-icons {float: left;}
+
         .song-duration {float: right;}
 
         .button-dark {
@@ -209,6 +213,8 @@
         }
         .artist-buttons {
           display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .album-img {
           height: 300px !important;
@@ -217,11 +223,13 @@
 
         .another-block {
           display: block;
+
         }
 
         .text-grey {
-          color: grey;
+          color: #aaaaaa;
         }
+
     </style>
 
 </head>
@@ -312,10 +320,10 @@
               <span class="album-title">Album title</span>
               <p class="another-block text-grey">Artist</p>
               <button class="button-dark" type="button" name="button">PLAY</button>
-              <p class="another-block text-grey">Year * XX songs</p>
+              <p class="another-block text-grey">Year  •  XX songs</p>
               <div class="artist-buttons">
-                <img src="" alt="">
-                <img src="" alt="">
+                <i class="material-icons">favorite_border</i>
+                <i class="material-icons">more_horiz</i>
               </div>
 
 
@@ -325,9 +333,8 @@
               <h1 class="text-grey">Songs</h1>
               <ul class="list-group-flush">
                 <li class="list-group-item clearfix">
-                    <img src="" alt="">
+                    <i class="material-icons">music_note</i>
                     <div class="song-title">Song Title</div>
-                    <div class="song-artist"><br />Artist</div>
                     <div class="song-duration">3:50</div>
                 </li>
                 <li class="list-group-item clearfix">
@@ -359,7 +366,7 @@
           </div>
         </div>
     </div>
-//sdsd
+
     <footer class="footer">
         <div class="iconsPlayer">
             <i class="fa fa-random"></i>
