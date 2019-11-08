@@ -23,6 +23,7 @@
             background-color: #181818;
             margin-left: 231px;
             min-height: 100vh;
+            padding-bottom: 150px;
         }
 
         #sidebar {
@@ -77,6 +78,7 @@
         h1 {
             font-weight: bold;
             text-align: left;
+            padding: 30px;
         }
 
         .bottom {
@@ -119,6 +121,31 @@
             color: white;
         }
 
+        .green {
+            background-color: #1db954;
+            border: 1px solid #1db954;
+            color: white;
+            width: 100px;
+            padding: 9px;
+            margin: 10px;
+        }
+
+        .green:hover {
+            color: white;
+        }
+
+        .transparent {
+            width: 100px;
+            padding: 9px;
+            color: white;
+            margin: 10px;
+            background-image: linear-gradient(rgba(24, 24, 24, 0.7), rgba(24, 24, 24, 0.7));
+        }
+
+        .transparent:hover {
+            color: white;
+        }
+
         .link-header {
             margin: 20px;
             font-size: 11px;
@@ -126,6 +153,37 @@
             letter-spacing: 2px;
             display: inline-block;
         }
+
+        .header {
+            min-height: 430px;
+            position: relative;
+            background-size: cover;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(rgba(24, 24, 24, 0.7), rgba(24, 24, 24, 1)), url("https://i.scdn.co/image/ae51fae909f17b9c570fe0597fc974cb72802722");
+        }
+
+        .header span {
+            color: #b3b3b3;
+            font-size: 11px;
+            letter-spacing: 1.4px;
+            margin-top: 50px;
+        }
+
+        .header .navbar-header {
+            line-height: 20px;
+        }
+
+
+        .header h1 {
+            font-size: 72px;
+            color: white;
+            font-weight: 900;
+            text-align: center;
+            margin: 30px;
+        }
+
+
 
         .header .active {
             color: white;
@@ -152,14 +210,30 @@
             font-weight: 800;
         }
 
-        img {
+
+        #albumsBox img {
             max-width: 100%;
-            width: 130px;
-            min-width: 130px;
+            width: 200px;
+            min-width: 200px;
             padding-bottom: 10px;
             display: block;
-            margin: auto;
+            display: block;
+            margin: 1em auto;
+        }
 
+        #albumsBox img:hover {
+            opacity: 30%;
+            cursor: pointer;
+        }
+
+        #albumsBox i {
+            display: none;
+        }
+
+        #albumsBox a {
+            color: #a2a2a2;
+            font-size: 14px;
+            font-weight: 400;
         }
 
         .container span {
@@ -257,24 +331,30 @@
     </nav>
 
     <div class="content">
-        <div class="header">
+        <div class="container-fluid header">
+            <div class="row d-block p-5 text-center">
+                <div class="col-1 d-inline">
+                    <span>3,000,575 MONTHLY LISTENERS</span>
+                    <h1>Queen</h1>
+                    <input type="button" class="btn green text-center" value="PLAY">
+                    <input type="button" class="btn transparent text-center" value="FOLLOW">
+                </div>
+            </div>
             <div class="row">
-                <div class="col mt-4 ml-5 text-center">
-                    <a class="link-header active" href="#">TRENDING</a>
-                    <a class="link-header" href="#">PODCAST</a>
-                    <a class="link-header" href="#">MOODS AND GENRES</a>
-                    <a class="link-header" href="#">NEW RELEASES</a>
-                    <a class="link-header" href="#">DISCOVER</a>
+                <div class="col mt-4 ml-5 text-center navbar-header">
+                    <a class="link-header active" href="#">OVERVIEW</a>
+                    <a class="link-header" href="#">RELATED ARTISTS</a>
+                    <a class="link-header" href="#">ABOUT</a>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row mt-5 mb-3">
                 <div class="col">
-                    <h1><a href="#">#THROWBACKTHURSDAY</a></h1>
+                    <h1><a href="#">Albums</a></h1>
                 </div>
             </div>
-            <div class="row" id="albums">
+            <div class="row text-center" id="albumsBox">
 
             </div>
         </div>
@@ -289,6 +369,48 @@
             <i class="fa fa-repeat"></i>
         </div>
     </footer>
+
+    <script>
+        loading("queen")
+
+        function loading(artistID) {
+            fetch("https://deezerdevs-deezer.p.rapidapi.com/search?limit=6&q=" + artistID, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                    "x-rapidapi-key": "d66c0b004dmsh9ff02beb9316fdap1419abjsn9ec964390e2c"
+                }
+            })
+                .then(response => response.json())
+                .then(search => {
+                    console.log(search)
+
+                    //ALBUM SECTION
+                    var albumsBox = document.querySelector("#albumsBox")
+                    albumsBox.innerHTML = ""
+                    
+                    search.data.forEach(data => {
+                        var albumDiv = document.createElement("div")
+                                albumDiv.className = "col-md-6 col-l-4 col-xl-3"
+                                albumDiv.id = "album"
+                                albumDiv.innerHTML = `
+                                <img id="cover" src="${data.album.cover_big}">
+                                <div id="play"><i class="fa fa-play-circle"></i></div>
+                                <span> ${data.album.title} </span></br>
+                                <a src="#"> ${data.artist.name} </a>
+                                `
+                                albumsBox.appendChild(albumDiv)
+                    }) 
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
+        }
+
+
+
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
