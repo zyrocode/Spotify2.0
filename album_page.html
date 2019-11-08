@@ -6,28 +6,27 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon"
         href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
-
     <style>
         body {
             overflow-x: hidden;
             font-family: spotify-circular, spotify-circular-cyrillic, spotify-circular-arabic, spotify-circular-hebrew, Helvetica Neue, Helvetica, Arial, Hiragino Kaku Gothic Pro, Meiryo, MS Gothic, sans-serif;
         }
-
         .content {
             /* background-image: linear-gradient(to bottom right, #17264C, #000000); */
             background-color: #181818;
             margin-left: 231px;
             min-height: 100vh;
         }
-
         #sidebar {
             /* background-image: linear-gradient(to bottom right, #050911, #000000); */
             background-color: #050505;
@@ -39,49 +38,39 @@
             left: 0;
             z-index: 0;
         }
-
         #sidebar>svg {
             color: white;
             margin: 15px;
             width: 150px;
             padding-bottom: 40px;
         }
-
         .nav-item {
             list-style-type: none;
-
         }
-
         .nav-link,
         .link-header {
             color: #78797E;
             transition-duration: 0.5s;
         }
-
         a:hover {
             text-decoration: none;
             color: white;
         }
-
         .nav-link {
             font-weight: bold;
             color: #b3b3b3;
             font-size: 14px;
             text-align: auto;
             border-left: 4px solid #04060D;
-
         }
-
         nav .active {
             border-left: 4px solid #1ED760;
             color: white;
         }
-
         h1 {
             font-weight: bold;
             text-align: left;
         }
-
         .bottom {
             position: absolute;
             bottom: 150px;
@@ -90,7 +79,6 @@
             text-align: center;
             font-size: 10px;
         }
-
         .btn {
             border: 2px solid white;
             border-radius: 25px;
@@ -103,25 +91,20 @@
             transition: transform 0.2s;
             font-size: x-small;
         }
-
         .btn:hover {
             transform: scale(1.07)
         }
-
         .up {
             background-color: white;
             color: #04060D;
         }
-
         .in {
             background-color: #111113;
             color: white;
         }
-
         .in:hover {
             color: white;
         }
-
         .link-header {
             margin: 20px;
             font-size: 11px;
@@ -129,11 +112,9 @@
             letter-spacing: 2px;
             display: inline-block;
         }
-
         .header .active {
             color: white;
         }
-
         .header .active:after {
             content: "";
             display: block;
@@ -141,20 +122,16 @@
             width: 38%;
             border-bottom: 2px solid #1ED760;
         }
-
         h1 a {
             color: white;
         }
-
         h1 a:hover {
             border-bottom: 1px solid white;
         }
-
         i {
             color: #b4c1c7;
             font-weight: 800;
         }
-
         img {
             max-width: 100%;
             width: 130px;
@@ -162,34 +139,28 @@
             padding-bottom: 10px;
             display: block;
             margin: auto;
-
         }
-
         .container span {
             color: white;
             font-weight: bold;
             text-align: center;
         }
-
         footer {
             background-color: #282828;
             z-index: 2;
-            position: relative;
+            position: fixed;
             width: 100%;
             left: 0;
             bottom: 0;
             line-height: 90px !important;
         }
-
         footer i {
             transform: scale(1.5);
             padding: 10px;
         }
-
         footer .iconsPlayer {
             text-align: center;
         }
-
         .list-group-item {
           background-color: transparent;
           border-radius: 0;
@@ -229,7 +200,6 @@
         .text-grey {
           color: #aaaaaa;
         }
-
     </style>
 
 </head>
@@ -314,59 +284,22 @@
         </div>
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-4 text-center">
-              <h1 class="text-grey">Album</h1>
-              <img class="album-img" src="https://www.wallpapers.net/eminem-full-hd-wallpaper-for-desktop-mobiles/download/400x400.jpg" alt="">
-              <span class="album-title">Album title</span>
-              <p class="another-block text-grey">Artist</p>
-              <button class="button-dark" type="button" name="button">PLAY</button>
-              <p class="another-block text-grey">Year  •  XX songs</p>
-              <div class="artist-buttons">
-                <i class="material-icons">favorite_border</i>
-                <i class="material-icons">more_horiz</i>
-              </div>
+            <div id="album" class="col-4 text-center">
+
 
 
 
             </div>
             <div class="col-8">
               <h1 class="text-grey">Songs</h1>
-              <ul class="list-group-flush">
-                <li class="list-group-item clearfix">
-                    <i class="material-icons">music_note</i>
-                    <div class="song-title">Song Title</div>
-                    <div class="song-duration">3:50</div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <img src="" alt="">
-                    <div class="song-title">Song Title</div>
-                    <div class="song-artist">Artist</div>
-                    <div class="song-duration">3:50</div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <img src="" alt="">
-                    <div class="song-title">Song Title</div>
-                    <div class="song-artist">Artist</div>
-                    <div class="song-duration">3:50</div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <img src="" alt="">
-                    <div class="song-title">Song Title</div>
-                    <div class="song-artist">Artist</div>
-                    <div class="song-duration">3:50</div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <img src="" alt="">
-                    <div class="song-title">Song Title</div>
-                    <div class="song-artist">Artist</div>
-                    <div class="song-duration">3:50</div>
-                </li>
+              <ul id="songs" class="list-group-flush">
+
               </ul>
             </div>
           </div>
         </div>
     </div>
-
+//sdsd
     <footer class="footer">
         <div class="iconsPlayer">
             <i class="fa fa-random"></i>
@@ -376,6 +309,8 @@
             <i class="fa fa-repeat"></i>
         </div>
     </footer>
+
+    <script src="album.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
